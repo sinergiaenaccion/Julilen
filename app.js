@@ -1,30 +1,13 @@
-const WA="5493547522351";
-let cart=[];
-const $=s=>document.querySelector(s);
-const $$=s=>document.querySelectorAll(s);
-function renderCart(){
- const box=$("#cartItems"),count=$("#cartCount"); count.textContent=cart.length;
- if(!cart.length){box.innerHTML='<p class="empty-cart">Todavía no agregaste productos.</p>';return;}
- box.innerHTML=cart.map((name,i)=>'<div class="cart-item"><span>'+name+'</span><button data-remove="'+i+'" aria-label="Quitar '+name+'">×</button></div>').join("");
- $$("[data-remove]").forEach(b=>b.addEventListener("click",()=>{cart.splice(Number(b.dataset.remove),1);renderCart();}));
-}
-function openCart(){$("#cartDrawer").classList.add("open");$("#cartOverlay").classList.add("show");$("#cartDrawer").setAttribute("aria-hidden","false");}
-function closeCart(){$("#cartDrawer").classList.remove("open");$("#cartOverlay").classList.remove("show");$("#cartDrawer").setAttribute("aria-hidden","true");}
-function filterProducts(filter){
- $$(".filter").forEach(b=>b.classList.toggle("active",b.dataset.filter===filter));
- $$(".product-card").forEach(card=>{const show=filter==="todos"||card.dataset.category.split(" ").includes(filter);card.classList.toggle("hidden",!show);});
-}
+const WA="5493547522351";let cart=[];const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+function renderCart(){const box=$("#cartItems"),count=$("#cartCount");if(count)count.textContent=cart.length;if(!box)return;if(!cart.length){box.innerHTML='<p class="empty-cart">Todavía no agregaste productos.</p>';return}box.innerHTML=cart.map((name,i)=>'<div class="cart-item"><span>'+name+'</span><button data-remove="'+i+'" aria-label="Quitar">×</button></div>').join("");$$("[data-remove]").forEach(b=>b.addEventListener("click",()=>{cart.splice(Number(b.dataset.remove),1);renderCart()}))}
+function openCart(){$("#cartDrawer").classList.add("open");$("#cartOverlay").classList.add("show");$("#cartDrawer").setAttribute("aria-hidden","false")}
+function closeCart(){$("#cartDrawer").classList.remove("open");$("#cartOverlay").classList.remove("show");$("#cartDrawer").setAttribute("aria-hidden","true")}
+function filterProducts(filter){$$(".filter").forEach(b=>b.classList.toggle("active",b.dataset.filter===filter));$$(".product-card").forEach(c=>c.classList.toggle("hidden",!(filter==="todos"||c.dataset.category.split(" ").includes(filter))))}
 document.addEventListener("DOMContentLoaded",()=>{
- $$('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const target=document.querySelector(a.getAttribute("href"));if(target){e.preventDefault();target.scrollIntoView({behavior:"smooth",block:"start"});}}));
- $$(".filter").forEach(b=>b.addEventListener("click",()=>filterProducts(b.dataset.filter)));
- $$("[data-filter-link]").forEach(a=>a.addEventListener("click",()=>setTimeout(()=>filterProducts(a.dataset.filterLink),250)));
- $$(".add-product").forEach(b=>b.addEventListener("click",()=>{cart.push(b.dataset.name);renderCart();openCart();}));
- $("#openCart").addEventListener("click",openCart);$("#closeCart").addEventListener("click",closeCart);$("#cartOverlay").addEventListener("click",closeCart);
- $("#sendOrder").addEventListener("click",()=>{
-  if(!cart.length){openCart();return;}
-  const note=$("#customerNote").value.trim();
-  const lines=cart.map((x,i)=>(i+1)+". "+x).join("\\n");
-  const text="Hola Julilen 💚 Quiero hacer este pedido:\\n\\n"+lines+(note?"\\n\\nMensaje: "+note:"")+"\\n\\n¿Me indican disponibilidad, precio y opciones de entrega?";
-  window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(text),"_blank","noopener");
- });
+$$('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const t=document.querySelector(a.getAttribute("href"));if(t){e.preventDefault();t.scrollIntoView({behavior:"smooth",block:"start"})}}));
+$$(".filter").forEach(b=>b.addEventListener("click",()=>filterProducts(b.dataset.filter)));
+$$(".add-product").forEach(b=>b.addEventListener("click",()=>{cart.push(b.dataset.name);renderCart();openCart()}));
+const open=$("#openCart");if(open)open.addEventListener("click",openCart);$("#closeCart").addEventListener("click",closeCart);$("#cartOverlay").addEventListener("click",closeCart);
+$("#sendOrder").addEventListener("click",()=>{if(!cart.length)return;const note=$("#customerNote").value.trim();const lines=cart.map((x,i)=>(i+1)+". "+x).join("\n");const msg="Hola Julilen 💚 Quiero hacer este pedido:\n\n"+lines+(note?"\n\nMensaje: "+note:"")+"\n\n¿Me indican disponibilidad, precio y opciones de entrega?";window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank")});
+$("#agendaForm").addEventListener("submit",e=>{e.preventDefault();const d=new FormData(e.currentTarget);const msg="Hola Julilen 💚 Quiero agendar un pedido.\n\nNombre: "+d.get("nombre")+"\nPara recordar a: "+(d.get("recordar")||"No indicado")+"\nFecha: "+d.get("fecha")+"\nMotivo: "+d.get("motivo")+"\nUbicación: "+(d.get("ubicacion")||"A confirmar")+"\nTipo: "+d.get("tipo")+"\nMensaje: "+(d.get("mensaje")||"");window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank")});
 });
