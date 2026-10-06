@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250"><rect width="760" height="250" fill="none"/><g fill="none" stroke="#65745f" stroke-width="8" stroke-linecap="round"><path d="M380 92c-5-42 13-65 48-82"/><path d="M394 69c43-5 73-27 91-57"/><path d="M392 73c-35-4-65-20-83-46"/><path d="M430 42c29-14 55-14 79-2"/><path d="M358 48c-24-15-47-18-70-9"/></g><g fill="#65745f"><ellipse cx="444" cy="37" rx="13" ry="35" transform="rotate(45 444 37)"/><ellipse cx="404" cy="61" rx="13" ry="35" transform="rotate(-48 404 61)"/><ellipse cx="365" cy="50" rx="12" ry="31" transform="rotate(-65 365 50)"/></g><text x="380" y="168" text-anchor="middle" font-family="Georgia,serif" font-size="96" font-weight="700" fill="#334238">julilen</text><text x="380" y="205" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" letter-spacing="5" fill="#6e756d">FLORES · REGALOS · MOMENTOS</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+<title id="title">Julilen — Flores, regalos, momentos</title>
+<desc id="desc">Logotipo Julilen con rama de hojas verdes y la frase Flores que expresan.</desc>
+<rect width="760" height="300" fill="none"/>
+<g fill="none" stroke="#65745f" stroke-width="4.5" stroke-linecap="round">
+  <path d="M177 112 C250 92 300 95 365 72 C425 51 480 27 548 28"/>
+  <path d="M365 72 C392 47 413 23 430 3"/>
+  <path d="M425 50 C468 55 512 48 558 30"/>
+  <path d="M292 93 C278 65 267 43 264 19"/>
+  <path d="M470 42 C505 74 536 92 579 101"/>
+  <path d="M528 34 C565 50 601 59 641 57"/>
+  <path d="M232 101 C205 76 184 58 173 36"/>
+</g>
+<g fill="#65745f">
+  <ellipse cx="425" cy="28" rx="11" ry="31" transform="rotate(31 425 28)"/>
+  <ellipse cx="300" cy="65" rx="11" ry="29" transform="rotate(-35 300 65)"/>
+  <ellipse cx="264" cy="28" rx="10" ry="28" transform="rotate(-13 264 28)"/>
+  <ellipse cx="497" cy="55" rx="11" ry="32" transform="rotate(67 497 55)"/>
+  <ellipse cx="565" cy="42" rx="11" ry="31" transform="rotate(81 565 42)"/>
+  <ellipse cx="552" cy="91" rx="10" ry="28" transform="rotate(105 552 91)"/>
+  <ellipse cx="199" cy="62" rx="10" ry="27" transform="rotate(-45 199 62)"/>
+</g>
+<text x="380" y="185" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="600" fill="#334238">julilen</text>
+<text x="380" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" letter-spacing="4.2" fill="#65745f">FLORES · REGALOS · MOMENTOS</text>
+<text x="380" y="273" text-anchor="middle" font-family="'Brush Script MT','Segoe Script',cursive" font-size="39" font-style="italic" fill="#65745f">Flores que expresan</text>
+</svg>
